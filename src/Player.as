@@ -9,7 +9,7 @@ package
 	public class Player extends FlxSprite
 	{
 		[Embed(source = '../assets/player.png')] private var playerPNG:Class;
-	
+		public var speed:Number;
 		
 		public function Player(x:Number, y:Number) 
 		{
@@ -18,6 +18,7 @@ package
 			loadGraphic(playerPNG, false, false, 16, 32, false);
 			width = 16;
 			height = 32;
+			speed = 0.01;
 		}
 		
 		override public function update():void 
@@ -31,7 +32,11 @@ package
 			if (y + height > FlxG.height) y = FlxG.height - height;
 			
 			// Follow Mouse
-			x += 1;
+			x += (FlxG.mouse.x - x) * speed;
+			y += (FlxG.mouse.y - y) * speed;
+			
+			// Face Mouse
+			//angle = ((FlxG.mouse.y - y) / (FlxG.mouse.x -x));
 		}
 	}
 
