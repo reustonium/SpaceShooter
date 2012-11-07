@@ -10,7 +10,7 @@ package
 	public class TestLevel extends FlxState
 	{
 		private var player:Player;
-		[Embed(source = '../assets/pointer.png')] private var mousePNG:Class;
+		private var spaceMouse:SpaceMouse;
 		
 		public function TestLevel() 
 		{
@@ -18,12 +18,25 @@ package
 		
 		override public function create():void 
 		{
-			// Create and Add Stuff
+			// Create and add Player
 			player = new Player(120, 120);
 			add(player);
 			
-			// Display Mouse
-			FlxG.mouse.show(mousePNG, 0.3, 0, 0);
+			// Create and add Mouse
+			spaceMouse = new SpaceMouse();
+			add(spaceMouse);
+		}
+		
+		override public function update():void 
+		{
+			super.update();
+		
+			// Mouse Inputs
+			if (FlxG.mouse.justPressed())
+			{
+				spaceMouse.mouseClick();
+			}
+			
 		}
 		
 	}

@@ -10,6 +10,7 @@ package
 	{
 		[Embed(source = '../assets/player.png')] private var playerPNG:Class;
 		public var speed:Number;
+		private var minMove:Number;
 		
 		public function Player(x:Number, y:Number) 
 		{
@@ -18,7 +19,10 @@ package
 			loadGraphic(playerPNG, false, false, 16, 32, false);
 			width = 16;
 			height = 32;
-			speed = 0.01;
+			
+			// Movement Parameters
+			speed = 1;
+			minMove = 2;
 		}
 		
 		override public function update():void 
@@ -32,12 +36,19 @@ package
 			if (y + height > FlxG.height) y = FlxG.height - height;
 			
 			// Follow Mouse
-			x += (FlxG.mouse.x - x) * speed;
-			y += (FlxG.mouse.y - y) * speed;
+			var yDist:Number = FlxG.mouse.y - y;
+			var xDist:Number = FlxG.mouse.x - x - (width / 2) + 2;
+			var dist:Number = Math.sqrt((yDist * yDist) + (xDist * xDist));
+			
+			if (dist > minMove) {
+				x += speed * (xDist / dist);
+				y += speed * (yDist / dist);
+			}		
 			
 			// Face Mouse
-			//angle = ((FlxG.mouse.y - y) / (FlxG.mouse.x -x));
+			angle = Math.atan2(yDist, xDist) * (180 / Math.PI) + 90;
 		}
+	
 	}
 
 }
