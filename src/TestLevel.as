@@ -1,6 +1,7 @@
 package  
 {
 	import org.flixel.FlxState;
+	import org.flixel.FlxG;
 
 	/**
 	 * ...
@@ -16,9 +17,12 @@ package
 		
 		override public function create():void 
 		{
+			// Create and Add Stuff
 			player = new Player(120, 120);
-
 			add(player);
+			
+			// Display Mouse
+			FlxG.mouse.show();
 		}
 		
 	}
