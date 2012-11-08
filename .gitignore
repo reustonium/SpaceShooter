@@ -2,6 +2,7 @@
 bin-debug/
 bin-release/
 bin/
+bin\
 
 # Project property files
 .actionScriptProperties
