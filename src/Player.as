@@ -2,6 +2,8 @@ package
 {
 	import org.flixel.FlxSprite;
 	import org.flixel.FlxG;
+	import org.flixel.plugin.photonstorm.FlxMath;
+	
 	/**
 	 * ...
 	 * @author reustonium
@@ -23,6 +25,9 @@ package
 			// Movement Parameters
 			speed = 1;
 			minMove = 2;
+
+			// Player Parameters
+			health = 90;
 		}
 		
 		override public function update():void 
@@ -47,6 +52,12 @@ package
 			
 			// Face Mouse
 			angle = Math.atan2(yDist, xDist) * (180 / Math.PI) + 90;
+			
+			// Fire Bullet
+			if (FlxG.mouse.justPressed())
+			{
+				G.bulletManager.fire(FlxMath.rand(0, 400), FlxMath.rand(0, 400), 0);
+			}
 		}
 	
 	}
