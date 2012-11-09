@@ -2,6 +2,7 @@ package
 {
 	import org.flixel.FlxState;
 	import org.flixel.FlxG;
+	import org.flixel.FlxText;
 	import org.flixel.plugin.photonstorm.FlxBar;
 
 	/**
@@ -12,7 +13,7 @@ package
 	{
 		private var player:Player;
 		private var spaceMouse:SpaceMouse;
-		private var healthBar:FlxBar;
+		private var debugText:FlxText;
 		
 		public function TestLevel() 
 		{
@@ -21,20 +22,19 @@ package
 		override public function create():void 
 		{
 			// Populate G
-			G.bulletManager = new BulletManager();
 			
 			// Create and add Player
 			player = new Player(120, 120);
 			add(player);
-			
-			healthBar = new FlxBar(0, 0, FlxBar.FILL_LEFT_TO_RIGHT, 20, 3, player, "health", 0, 100, false);
-			healthBar.trackParent(-(20-player.width)/2, player.height);
-			add(healthBar);
+
 			
 			// Create and add Mouse
 			spaceMouse = new SpaceMouse();
 			add(spaceMouse);
 	
+			// Text for Debugging
+			debugText = new FlxText(300, 10, 100);
+			add(debugText);
 		}
 		
 		override public function update():void 
@@ -47,6 +47,8 @@ package
 				spaceMouse.mouseClick();
 			}
 			
+			// Update DebugText
+			debugText.text = "Num Bullets " + player.angle;
 		}
 		
 	}
