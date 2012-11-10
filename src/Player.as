@@ -14,7 +14,7 @@ package
 		[Embed(source = '../assets/player.png')] private var playerPNG:Class;
 		public var speed:Number;
 		private var minMove:Number;
-		private var laser:FlxWeapon;
+		public var laser:FlxWeapon;
 		private var laserAmmo:int;
 		private var healthBar:FlxBar;
 		

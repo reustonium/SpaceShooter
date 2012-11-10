@@ -6,7 +6,7 @@ package
 	 */
 	public class G 
 	{
-	
+		public static var enemies:EnemyManager;
 	}
 
 }

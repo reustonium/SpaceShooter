@@ -20,12 +20,12 @@
     </define>
     <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
-      <path-element>C:\Documents and Settings\desertfox\My Documents\SpaceShooter\src</path-element>
-      <path-element>C:\Program Files\FlashDevelop\Library\AS3\classes</path-element>
+      <path-element>C:\Users\Andy\Documents\git_projects\SpaceShooter\src</path-element>
+      <path-element>C:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
   </compiler>
   <file-specs>
-    <path-element>C:\Documents and Settings\desertfox\My Documents\SpaceShooter\src\Main.as</path-element>
+    <path-element>C:\Users\Andy\Documents\git_projects\SpaceShooter\src\Main.as</path-element>
   </file-specs>
   <default-background-color>#FFFFFF</default-background-color>
   <default-frame-rate>30</default-frame-rate>

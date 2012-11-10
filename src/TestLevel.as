@@ -4,6 +4,7 @@ package
 	import org.flixel.FlxG;
 	import org.flixel.FlxText;
 	import org.flixel.plugin.photonstorm.FlxBar;
+	import org.flixel.FlxU;
 
 	/**
 	 * ...
@@ -26,7 +27,10 @@ package
 			// Create and add Player
 			player = new Player(120, 120);
 			add(player);
-
+			
+			// Create Enemy Manager
+			G.enemies = new EnemyManager();
+			add(G.enemies);
 			
 			// Create and add Mouse
 			spaceMouse = new SpaceMouse();
@@ -49,6 +53,9 @@ package
 			
 			// Update DebugText
 			debugText.text = "Num Bullets " + player.angle;
+			
+			// Check collisions
+			FlxG.collide(G.enemies, player.laser.group, G.enemies.bulletHitEnemy);
 		}
 		
 	}
