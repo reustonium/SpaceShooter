@@ -29,8 +29,6 @@ package
 			add(player);
 			
 			// Create Enemy Manager
-			G.enemies = new EnemyManager();
-			add(G.enemies);
 			
 			// Create and add Mouse
 			spaceMouse = new SpaceMouse();
@@ -55,7 +53,6 @@ package
 			debugText.text = "Num Bullets " + player.angle;
 			
 			// Check collisions
-			FlxG.collide(G.enemies, player.laser.group, G.enemies.bulletHitEnemy);
 		}
 		
 	}
